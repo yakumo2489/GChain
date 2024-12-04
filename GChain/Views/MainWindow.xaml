@@ -253,6 +253,7 @@
                 <ContentPresenter Grid.Row="4" Content="{Binding SelectedTail}" />
                 <Button
                     Grid.Row="5"
+                    Margin="5"
                     Command="{Binding GenerateCodeCommand}"
                     Content="コード生成" />
             </Grid>
