@@ -147,7 +147,9 @@ namespace GChain.Domain
 
         public (GeneratedCode code, string variableName) GenerateCode(string previousVariableName)
         {
-            return (new GeneratedCode($"contours, _ = cv2.findContours({previousVariableName}, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)"), "contours");
+            return (new GeneratedCode($"contours, _ = cv2.findContours({previousVariableName}, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)\n" +
+                $"area_sizes = [cv2.contourArea(c) for c in contours]\n" +
+                $"largest_contour, _ = max(zip(contours, area_sizes), key=lambda p: p[1])"), "largest_contour");
         }
     }
 
