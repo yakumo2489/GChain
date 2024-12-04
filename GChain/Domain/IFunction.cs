@@ -177,7 +177,7 @@ namespace GChain.Domain
         public (GeneratedCode code, string variableName) GenerateCode(string previousVariableName)
         {
             return (new GeneratedCode($"epsilon = 0.03 * cv2.arcLength({previousVariableName}, True)\n"
-                + $"approx = cv2.approxPolyDP({previousVariableName})"), "approx");
+                + $"approx = cv2.approxPolyDP({previousVariableName}, epsilon, True)"), "approx");
         }
     }
 
